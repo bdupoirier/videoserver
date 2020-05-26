@@ -176,10 +176,7 @@ export class RestaurantsComponent implements OnInit {
         });
     }
 
-    localizeMarker(index) {
-        var image = $("#gmimap" + index + "").prev().css({ 'visibility': 'hidden', 'background-color': 'red' });
-    }
-
+  /* Récupération des informations liées à un restaurant en fonction de son ID */
     getMarkerInfos(id) {
         this.CommonService.getRestaurantById(id).subscribe(
             (data) => {

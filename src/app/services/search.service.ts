@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SearchService {
-
+  /* /!\ Non en cours d'utilisation pour le moment /!\ */
   constructor() { }
 }

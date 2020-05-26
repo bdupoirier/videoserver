@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonService } from '../services/common.service';
 import { debug } from 'util';
 import { HttpClient } from '@angular/common/http';
+/* Import JQuery */
 declare var $: any;
 
 @Component({
@@ -10,6 +11,7 @@ declare var $: any;
     styleUrls: ['./restaurants.component.css']
 })
 export class RestaurantsComponent implements OnInit {
+  
     reponse = [];
     title: string = 'VideoServer';
     latitude: number;
@@ -128,6 +130,7 @@ export class RestaurantsComponent implements OnInit {
         )
     }
 
+  /* Traitement des informations liées aux restaurants en vue de leur affichage sur la carte Google Maps */
     private setMarkers(reponse) {
         reponse[0].forEach(element => {
             var date = new Date();
@@ -177,6 +180,7 @@ export class RestaurantsComponent implements OnInit {
     }
 
   /* Récupération des informations liées à un restaurant en fonction de son ID */
+  /* En cours de developpement */
     getMarkerInfos(id) {
         this.CommonService.getRestaurantById(id).subscribe(
             (data) => {

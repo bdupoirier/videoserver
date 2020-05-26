@@ -13,16 +13,10 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class AppComponent implements OnInit {
 
   title = 'VideoServer';
-  apiKey = 'AIzaSyDdYYeBnRHw1pgvSU6z_8gpymAj2IPvUkw';
-  channel = "UC86BKGkw3Giit6yTAntInfQ";
   maxResults = 25;
-  results = [];
-  showNavigationArrows = false;
-  showNavigationIndicators = false;
 
   constructor(private httpClient: HttpClientModule, private router: Router, private youtubeService: YoutubeService, private config: NgbCarouselConfig) {
-    config.showNavigationArrows = true;
-    config.showNavigationIndicators = true;
+   
   }
 
   ngOnInit() {

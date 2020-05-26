@@ -14,13 +14,12 @@ export class RssInfoService {
   xmlUrl: SafeUrl;
 
   constructor(private http: HttpClient, sanitize: DomSanitizer) {}
-
+  /* Récupération de flux RSS afin de les afficher dynamiquement dans l'application */
+  /* /!\ En travaux /!\ */
   GetRssFeedData() {
+    /* Sécurisation de l'url contenant le flux RSS */
     this.xmlUrl = ɵbypassSanitizationTrustHtml("https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml");
-    const requestOptions: Object = {
-      observe: "body",
-      responseType: "text"
-    };
+    /* Requete de récupération du flux */
     this.http
       .get<any>(this.xmlUrl.toString(), {
         headers: new HttpHeaders()

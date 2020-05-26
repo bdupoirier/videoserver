@@ -1,3 +1,4 @@
+/* Import global des modules */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,12 +11,14 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
 
+/* import global des services */ 
 import { YoutubeService } from './services/youtube.service';
 import { DailymotionService } from './services/dailymotion.service';
 import { VimeoService } from './services/vimeo.service';
 import { RssInfoService } from './services/rss-info.service';
 import { CommonService } from './services/common.service';
 
+/* Import des components */
 import { AppComponent } from './app.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { HeaderComponent } from './header/header.component';
@@ -28,8 +31,7 @@ import { VimeoSliderComponent } from './home/vimeo-slider/vimeo-slider.component
 import { RssHomeComponent } from './rss-home/rss-home.component';
 import { DailymotionVideoComponent } from './dailymotion-video/dailymotion-video.component';
 
-
-
+/* Gestion du routing de l'application */ 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent },
   {path: 'search', component: SearchComponent },
@@ -66,6 +68,7 @@ const appRoutes: Routes = [
     NgwWowModule,
     CommonModule,
     GoogleMapsModule,
+    /* Déclaration de la clé api Google Maps ainsi que la bibliothèque "places" */
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDdYYeBnRHw1pgvSU6z_8gpymAj2IPvUkw',
       libraries: ['places']

@@ -1,1 +1,155 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+    min-height: 100%;
+}
+
+body {
+    background: rgb(246,248,249); /* Anciens navigateurs */
+    background: -moz-linear-gradient(top, rgba(246,248,249,1) 0%, rgb(196, 197, 197)100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(196,197,197,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(246,248,249,1) 0%,rgba(196,197,197) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* IE6-9 */
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+    
+    .separator {
+        margin: 3rem 0;
+        border-bottom: 1px dashed #fff;
+    }
+    
+    .text-uppercase {
+        letter-spacing: 0.1em;
+    }
+    
+    .text-gray {
+        color: #aaa;
+    }
+/* Page reduite pour le menu vertical */
+
+.page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+}
+
+/* Menu */
+
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+}
+
+#sidebar.active {
+    margin-left: -17rem;
+}
+
+#content.active {
+    width: 100%;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -17rem;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+        margin: 0;
+    }
+    #content.active {
+        margin-left: 17rem;
+        width: calc(100% - 17rem);
+    }
+}
+
+/* Accueil - Formulaire de recherche vidéo */
+
+.container-search-video {
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 2.5%;
+}
+
+/* Carousels Youtube et Dailymotion */
+.card {
+    margin-top: 10%;
+    min-height: 528px !important;
+    max-width: 18rem;
+    margin-left: 4%;
+}
+
+.card-body {
+    min-height: 275px !important;
+}
+
+.card-img-top {
+    max-height: 214px;
+}
+
+#carouselYoutubeIndicators {
+    margin: 0 auto;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    background-color: black !important;
+    color: black;
+}
+.carousel-indicators {
+    top: 100%;
+    margin-top: 5%;
+}
+@media screen and (max-width: 479px) {
+    .carousel-control-prev, .carousel-control-next {
+        display: none;
+        visibility: hidden
+    }
+}
+@media screen and (min-width: 480px) {
+    .carousel-control-prev {
+        margin-top: 20%;
+        margin-right: 7.5%;
+        max-width: 25px;
+        max-height: 25px;
+        
+    }
+    .carousel-control-next {
+        margin-top: 20%;
+        margin-left: 12.5%;
+        max-width: 25px;
+        max-height: 25px;
+    }
+}
+/* Card restaurants */
+.btn-card {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    color: white !important;
+}
+#svg-youtube {
+    max-width: 8%;
+    color: red;
+    margin-right: 2.5%;
+}
+#svg-dailymotion {
+    max-width: 8%;
+    color: mediumturquoise;
+    margin-right: 2.5%;
+}
+@media (min-width: 768px) {
+    .col-md-2-5 {
+        -webkit-box-flex: 0;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}

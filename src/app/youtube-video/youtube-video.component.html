@@ -1,0 +1,30 @@
+<!-- Inclusion Menu -->
+<app-header></app-header>
+<div class="page-content p-5" id="content">
+    <!-- Bouton Menu -->
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+        class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
+        <!-- Insertion titre vidéo -->
+        <div class="row">
+            <div class="col-md-12">
+                <img style="-webkit-user-select: none;margin: auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/320px-YouTube_Logo_2017.svg.png">
+            </div>
+        </div>
+    <h2 class="display-4">{{this.videoInfos[0].items[0].snippet.title}}</h2>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <!-- Insertion vidéo Youtube dans le lecteur -->
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe id="ytplayer" class="embed-responsive-item" type="text/html" [src]="safeUrl" frameborder="0" allowfullscreen="true"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="separator"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3>Description</h3>
+            <!-- Insertion description de la vidéo -->
+            <p class="lead mb-0" [innerHTML]="this.description"></p>
+        </div>
+    </div>
+</div>

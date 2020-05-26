@@ -1,0 +1,70 @@
+<!-- <ngb-carousel *ngIf="srcWidth >= 481">
+    <ng-template ngbSlide>
+        <div class="row">
+            <div class="col-md-2-5" *ngFor="let result of results[0]; let i = index">
+                <div *ngIf="i <= 4" class="card" style="max-width: 18rem;">
+                    <img [src]="result.thumbnail_480_url" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{result.title}}</h5>
+                        <p class="card-text">
+                            {{(result.description.length > 75)? (result.description | slice:0:75)+'..':(result.description)}}
+                        </p>
+                        <a href="#" class="btn btn-primary btn-card">Voir la vidéo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ng-template>
+    <ng-template ngbSlide>
+        <div class="row">
+            <div class="col-md-2-5" *ngFor="let result of results[0]; let i = index">
+                <div class="card" *ngIf="i > 4 && i <= 9" style="max-width: 18rem;">
+                    <img [src]="result.thumbnail_480_url" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{result.title}}</h5>
+                        <p class="card-text">
+                            {{(result.description.length > 75)? (result.description | slice:0:75)+'..':(result.description)}}
+                        </p>
+                        <a href="#" class="btn btn-primary btn-card">Voir la vidéo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide>
+        <div class="row">
+            <div class="col-md-2-5" *ngFor="let result of results[0]; let i = index">
+                <div class="card" *ngIf="i > 9 && i <= 14" style="max-width: 18rem;">
+                    <img [src]="result.thumbnail_480_url" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{result.title}}</h5>
+                        <p class="card-text">
+                            {{(result.description.length > 75)? (result.description | slice:0:75)+'..':(result.description)}}
+                        </p>
+                        <a href="#" class="btn btn-primary btn-card">Voir la vidéo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</ngb-carousel>
+<ngb-carousel *ngIf="srcWidth < 481">
+    <ng-template ngbSlide *ngFor="let result of results[0]; let i = index">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card" style="max-width: 18rem;">
+                    <img [src]="result.thumbnail_480_url" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{result.title}}</h5>
+                        <p class="card-text">
+                            {{(result.description.length > 75)? (result.description | slice:0:75)+'..':(result.description)}}
+                        </p>
+                        <a href="#" class="btn btn-primary btn-card">Voir la vidéo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</ngb-carousel>
+ -->

@@ -1,0 +1,38 @@
+<!-- Insertion menu -->
+<app-header></app-header>
+<div class="page-content p-5" id="content">
+  <!-- Bouton affichage menu -->
+  <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+      class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
+
+  <h2 class="display-4">Bienvenue sur Net One</h2>
+  <p class="lead mb-0">Retrouvez tout le contenu Web dans la meme application</p>
+  <div class="separator"></div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="container-search-video">
+        <!-- Formulaire de recherche de vidéos -->
+        <form [formGroup]="searchForm" (ngSubmit)="onSearchVideo()" class="form-inline">
+          <input id="search" formControlName="search" class="form-control" type="search" placeholder="Rechercher une vidéo sur les plateformes Youtube et Dailymotion"
+            aria-label="Rechercher" style="min-width: 80%">
+          <button id="btn-search" class="btn btn-outline-info" type="submit">Rechercher</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Carousel vidéos Youtube -->
+  <app-youtube-slider></app-youtube-slider>
+  <!-- Carousel vidéos Dailymotion -->
+  <app-dailymotion-slider></app-dailymotion-slider>
+
+</div>
+
+
+<!-- JQuery -->
+<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<!-- JS Menu vertical -->
+<script src="../../assets/js/header/header.js"></script>
+<!-- WOW JS -->
+<script src="../../../node_modules/wowjs/dist/wow.js"></script>

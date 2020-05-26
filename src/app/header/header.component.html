@@ -1,0 +1,31 @@
+<!-- Création du menu vertical de l'application -->
+<div class="vertical-nav bg-white wow bounceInLeft" id="sidebar">
+    <div class="py-4 px-3 mb-4 bg-light">
+        <div class="media d-flex align-items-center">
+            <a routerLink="/">
+            <img src="../../assets/img/logo-net-one.png" alt="..." width="75" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+            </a>
+            <div class="media-body">
+                <h4 class="m-0 text-center">Net One</h4>
+                <p class="font-weight-light text-center mb-0">Votre contenu Web en une seule application</p>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Navigation</p>
+    <!-- Liens de l'application -->
+    <ul class="nav flex-column bg-white mb-0">
+        <li class="nav-item">
+            <a routerLink="/" routerLinkActive="active" class="nav-link text-dark font-italic bg-light">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                Accueil
+            </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/restaurants" routerLinkActive="active" class="nav-link text-dark font-italic">
+                <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                Restaurants
+            </a>
+        </li>
+    </ul>
+</div>

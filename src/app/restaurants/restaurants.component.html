@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="page-content p-5" id="content">
+  <!-- Bouton menu vertical -->
+  <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+      class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
+
+  <h2 class="display-4">Carte des restaurants</h2>
+  <p class="lead mb-0">Retrouvez l'ensemble des restaurants américains ainsi que leur notation.</p>
+  <div class="separator"></div>
+  <div class="row-fullwidth">
+    <!-- Carte Google Maps API couplée aux données de la collection Restaurants-->
+    <agm-map [styles]="styles" [fitBounds]="true">
+      <!-- Marqueurs Google Maps API -->
+      <agm-marker *ngFor="let data of rooms;" [latitude]="data.latitude" [longitude]="data.longitude"
+        [agmFitBounds]="true" [id]="data.restaurant_id">
+        <!-- Infos marqueurs Google Maps API -->
+        <agm-info-window [disableAutoPan]="true">
+          <div class="nom-rest">{{data.nom}}</div>
+          <div class="cuisine-rest">type : {{data.cuisine}}</div>
+          <div class="adresse-rest">{{data.rue}}, {{data.quartier}}</div>
+        </agm-info-window>
+      </agm-marker>
+
+    </agm-map>
+  </div>
+  <div class="row container-infos-restaurants">
+    <!-- Affichage dynamique des restaurants de la collection -->
+    <div class="col-md-6" *ngFor="let data of rooms; let j = index">
+      <div class="courses-container">
+        <div class="course">
+          <div class="course-preview" [style.background-color]="data.couleur_notes">
+            <h2 class="nom-rest-card">{{data.nom}}</h2>
+          </div>
+          <div class="course-info">
+            <div class="progress-container">
+              <!-- Barre de notations des restaurants -->
+              <div class="progress">
+                <div class="progress-notes" [style.width]="data.moyenne_notes * 100 / 20 + '%'"
+                  [style.background-color]="data.couleur_notes"></div>
+              </div>
+              <span class="progress-text">
+                {{data.moyenne_notes}} / 20 ({{data.nombre_notes}} notes)
+              </span>
+            </div>
+            <h6 class="cuisine-rest-card">{{data.cuisine}}</h6>
+            <h2 [style.color]="data.couleur_notes">{{data.rue}}, {{data.quartier}}</h2>
+            <button class="btn-localisation" [style.background-color]="data.couleur_notes"
+              (click)="localizeMarker(j)">Localiser</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="../../assets/js/header/header.js"></script>
+<script src="../../../node_modules/wowjs/dist/wow.js"></script>

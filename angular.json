@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/VideoServer",
+            "outputPath": "docs/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,9 +24,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/animate.css/animate.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/header/header.js",
+              "node_modules/wowjs/dist/wow.js",
+              "src/assets/js/main/scripts.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -54,7 +62,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "100kb"
                 }
               ]
             }
@@ -120,6 +128,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "VideoServer"
 }

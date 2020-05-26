@@ -1,0 +1,122 @@
+<!-- Affichage carousel de vidéo pour affichage desktop et tablettes en paysage -->
+<!-- Trois slides de 5 vidéos chacun -->
+
+<!-- Logo Youtube -->
+<img style="-webkit-user-select: none;margin: auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/320px-YouTube_Logo_2017.svg.png">
+<div id="carouselYoutube" class="carousel slide" data-ride="carousel" *ngIf="srcWidth >= 481">
+    <ol id="carousel-indicators-youtube" class="carousel-indicators">
+        <li data-target="#carouselYoutube" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselYoutube" data-slide-to="1"></li>
+        <li data-target="#carouselYoutube" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row row-youtube">
+                <div class="col-md-2-5" *ngFor="let result of results[0]; let i = index">
+                    <div *ngIf="i <= 4" class="card youtube-card">
+                        <img [src]="result.snippet.thumbnails.high.url" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{result.snippet.title}}</h5>
+                            <p class="card-text">
+                                {{(result.snippet.description.length > 75)? (result.snippet.description | slice:0:75)+'..':(result.snippet.description)}}
+                            </p>
+                            <a class="btn btn-primary btn-card" (click)="onViewYoutubeVideo(result.id)">Voir la
+                                vidéo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="row row-youtube">
+                <div class="col-md-2-5" *ngFor="let result of results[0]; let i = index">
+                    <div class="card youtube-card" *ngIf="i > 4 && i <= 9">
+                        <img [src]="result.snippet.thumbnails.high.url" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{result.snippet.title}}</h5>
+                            <p class="card-text">
+                                {{(result.snippet.description.length > 75)? (result.snippet.description | slice:0:75)+'..':(result.snippet.description)}}
+                            </p>
+                            <a class="btn btn-primary btn-card" (click)="onViewYoutubeVideo(result.id)">Voir la
+                                vidéo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="row row-youtube">
+                <div class="col-md-2-5" *ngFor="let result of results[0]; let i = index">
+                    <div class="card youtube-card" *ngIf="i > 9 && i <= 14">
+                        <img [src]="result.snippet.thumbnails.high.url" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{result.snippet.title}}</h5>
+                            <p class="card-text">
+                                {{(result.snippet.description.length > 75)? (result.snippet.description | slice:0:75)+'..':(result.snippet.description)}}
+                            </p>
+                            <a class="btn btn-primary btn-card" (click)="onViewYoutubeVideo(result.id)">Voir la
+                                vidéo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselYoutube" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselYoutube" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+</div>
+
+<!-- Affichage du carousel de vidéos pour téléphone et tablette en mode portrait -->
+<!-- 15 slides de 1 vidéo -->
+<div class="row" *ngIf="srcWidth < 481">
+    <div class="col-sm-12">
+        <div id="carouselYoutubeMobile" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselYoutubeMobile" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="1"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="2"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="3"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="4"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="5"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="6"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="7"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="8"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="9"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="10"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="11"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="12"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="13"></li>
+              <li data-target="#carouselYoutubeMobile" data-slide-to="14"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item item-youtube" [ngClass]="{active:isFirst}" *ngFor="let result of results[0]; let i = index; first as isFirst">
+                <div class="card" style="min-width: 18rem">
+                    <img [src]="result.snippet.thumbnails.high.url" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{result.snippet.title}}</h5>
+                        <p class="card-text">
+                            {{(result.snippet.description.length > 75)? (result.snippet.description | slice:0:75)+'..':(result.snippet.description)}}
+                        </p>
+                        <a class="btn btn-primary btn-card" (click)="onViewYoutubeVideo(result.id)">Voir la
+                            vidéo</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselYoutubeMobile" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselYoutubeMobile" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+    </div>
+</div>

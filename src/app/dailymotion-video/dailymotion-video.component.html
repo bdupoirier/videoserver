@@ -1,0 +1,31 @@
+<!-- Insertion menu -->
+<app-header></app-header>
+<div class="page-content p-5" id="content">
+    <!-- Bouton menu -->
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+            class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Menu</small></button>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Logo Dailymotion -->
+            <img style="-webkit-user-select: none;margin: auto;"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dailymotion_logo_%282017%29.svg/320px-Dailymotion_logo_%282017%29.svg.png">
+        </div>
+    </div>
+    <!-- Insertion titre vidéo -->
+    <h2 class="display-4" [innerHTML]="this.results.title"></h2>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <!-- Insertion lien vidéo dans le lecteur -->
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" width="480" height="270" [src]="this.safeUrl" allowfullscreen
+                    allow="autoplay"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="separator"></div>
+    <h3>Description</h3>
+    <!-- Insertion description -->
+    <p class="lead mb-0" [innerHTML]="this.results.description"></p>
+    <!-- Si pas de description, affichage de cette div -->
+    <p class="lead mb-0" *ngIf="this.results.description == ''">Aucune description disponible</p>
+</div>

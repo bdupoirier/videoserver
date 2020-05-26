@@ -1,3 +1,5 @@
+/* Interface de traitement des informations des flux RSS */
+/* En cours de développement */
 export interface NewsRss {
     rss: IRssObject;
   }

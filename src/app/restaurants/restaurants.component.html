@@ -1,3 +1,4 @@
+<!-- Inclusion menu -->
 <app-header></app-header>
 <div class="page-content p-5" id="content">
   <!-- Bouton menu vertical -->
@@ -11,12 +12,16 @@
     <!-- Carte Google Maps API couplée aux données de la collection Restaurants-->
     <agm-map [styles]="styles" [fitBounds]="true">
       <!-- Marqueurs Google Maps API -->
-      <agm-marker *ngFor="let data of rooms;" [latitude]="data.latitude" [longitude]="data.longitude"
+      <!-- agmFitBounds = centrage automatique de la carte en fonction des marqueurs -->
+      <agm-marker *ngFor="let data of rooms;"
         [agmFitBounds]="true" [id]="data.restaurant_id">
         <!-- Infos marqueurs Google Maps API -->
         <agm-info-window [disableAutoPan]="true">
+          <!-- Insertion nom restaurant -->
           <div class="nom-rest">{{data.nom}}</div>
+          <!-- Insertion type de cuisine pratiqué -->
           <div class="cuisine-rest">type : {{data.cuisine}}</div>
+          <!-- Insertion adresse restaurant -->
           <div class="adresse-rest">{{data.rue}}, {{data.quartier}}</div>
         </agm-info-window>
       </agm-marker>
@@ -24,26 +29,33 @@
     </agm-map>
   </div>
   <div class="row container-infos-restaurants">
-    <!-- Affichage dynamique des restaurants de la collection -->
+    <!-- Affichage dynamique des cards des restaurants de la collection -->
     <div class="col-md-6" *ngFor="let data of rooms; let j = index">
       <div class="courses-container">
         <div class="course">
+          <!-- Couleur attribuée en fonction de la moyenne des notes attribuées-->
           <div class="course-preview" [style.background-color]="data.couleur_notes">
+            <!-- Insertion nom restaurant -->
             <h2 class="nom-rest-card">{{data.nom}}</h2>
           </div>
           <div class="course-info">
             <div class="progress-container">
               <!-- Barre de notations des restaurants -->
               <div class="progress">
+                <!-- Moyenne des notes calculée sur 20 -->
                 <div class="progress-notes" [style.width]="data.moyenne_notes * 100 / 20 + '%'"
                   [style.background-color]="data.couleur_notes"></div>
               </div>
+              <!-- Moyenne des notes sur 20 -->
               <span class="progress-text">
                 {{data.moyenne_notes}} / 20 ({{data.nombre_notes}} notes)
               </span>
             </div>
+            <!-- Insertion type cuisine -->
             <h6 class="cuisine-rest-card">{{data.cuisine}}</h6>
+            <!-- Insertion adresse restaurant (couleur en fonction de la moyenne des notes) -->
             <h2 [style.color]="data.couleur_notes">{{data.rue}}, {{data.quartier}}</h2>
+            <!-- Insertion bouton Localiser restaurant avec fonction dynamique au clic, index j passé en parametre (couleur en fonction de la moyenne des notes)-->
             <button class="btn-localisation" [style.background-color]="data.couleur_notes"
               (click)="localizeMarker(j)">Localiser</button>
           </div>
@@ -53,5 +65,3 @@
 
   </div>
 </div>
-<script src="../../assets/js/header/header.js"></script>
-<script src="../../../node_modules/wowjs/dist/wow.js"></script>

@@ -20,13 +20,20 @@ description = "";
   constructor(private route: Router, private router: ActivatedRoute, private youtubeService: YoutubeService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    /* Récuperation ID Video envoyé par méthode GET */
     const videoId = this.router.snapshot.params['videoId'];
+    /* Création de l'url de la vidéo en fonction de son ID */
     this.urlVideo = this.youtubeService.viewVideo(videoId);
+    /* Sécurisation de la donnée "urlVideo" afin d'être rendue visible dans l'application Angular */
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.urlVideo);
+    /* Récupération des informations liées à la vidéo */
     this.youtubeService.getVideoInformations(videoId).subscribe(
       data => {
+        /* Création d'un tableau à partir du callback de Youtube API */
         this.videoInfos = Array.of(data);
+        /* Mise à part de la description de la vidéo qui doit être traitée afin de rendre les liens hypertexte cliquables */
         this.description = this.videoInfos[0].items[0].snippet.description;
+        /* Traitement de la description avec anchorme */
         this.description = anchorme({
           input: this.description,
           options: {

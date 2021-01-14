@@ -69,8 +69,9 @@ const appRoutes: Routes = [
     CommonModule,
     GoogleMapsModule,
     /* Déclaration de la clé api Google Maps ainsi que la bibliothèque "places" */
+    /* A remettre en temps voulu */
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDdYYeBnRHw1pgvSU6z_8gpymAj2IPvUkw',
+      apiKey: '',
       libraries: ['places']
     })
   ],
